@@ -1,7 +1,9 @@
 const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
 
-const secret = 'mysecretssshhhhhhh';
+// Set JWT_SECRET in server/.env (see .env.example)
+const secret = process.env.JWT_SECRET;
+if (!secret) throw new Error('JWT_SECRET is not set');
 const expiration = '2h';
 
 module.exports = {
